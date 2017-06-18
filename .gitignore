@@ -1,0 +1,10 @@
+/classes/
+/test-classes/
+/target/
+/workspace/
+/.settings/
+/*catalina*/
+.project
+.classpath
+*.log
+catalina.base_IS_UNDEFINED/**/*.log
