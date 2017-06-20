@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f613841e-657d-46b0-9c21-3e27818441d8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="183"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="table1_dataset" uuid="9620ca59-64a1-4811-bf61-6f978e61667f">
+		<parameter name="tableDataList" class="net.sf.jasperreports.engine.JRDataSource"/>
+		<field name="name" class="java.lang.String"/>
+		<field name="bankAccount" class="java.lang.String"/>
+		<field name="bankName" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset1" uuid="3ff44fb8-c4bb-40d0-9a15-e8548b7bd47d">
+		<field name="name" class="java.lang.String"/>
+		<field name="bankAccount" class="java.lang.String"/>
+		<field name="bankName" class="java.lang.String"/>
+		<field name="index" class="java.lang.Integer"/>
+		<field name="chartValues" class="java.util.List"/>
+	</subDataset>
+	<subDataset name="pie_chart_dataset" uuid="3a8a7324-1198-425e-ae2d-0802cfd1f904">
+		<field name="name" class="java.lang.String"/>
+		<field name="value" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["F:\\ireport-templates\\eventwarning\\reportdemo\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="userName" class="java.lang.String"/>
+	<field name="currDate" class="java.util.Date"/>
+	<field name="payees" class="java.util.List"/>
+	<field name="paragraphs" class="java.util.List"/>
+	<field name="chartValues" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="36ff3947-e806-4901-985a-b68eee99deb2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[JasperReport-iReport-自动报告demo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="39" y="38" width="44" height="20" uuid="2e5f419a-49f5-4283-ac72-ec7a3d1dffb6"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[日期：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="18" width="44" height="20" uuid="76983a00-df20-4649-ac54-8f208028a560"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[用户名：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="83" y="18" width="100" height="20" uuid="fc8bce4e-590c-41a8-a3d2-7b5bed9e818c"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{userName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="38" width="100" height="20" uuid="46f276ff-d1dd-47c9-8257-5f7b057320fb"/>
+				<textFieldExpression><![CDATA[$F{currDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="39" y="70" width="100" height="20" uuid="efc67dce-2348-4165-a278-f6b467e1e513"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[下面是表格循环：]]></text>
+			</staticText>
+		</band>
+		<band height="50">
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="0" y="0" width="555" height="50" uuid="8b484c04-02a8-4959-bb56-2dd628c4106b"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="table1_dataset" uuid="5ba64c53-bc4f-46fd-bbb2-c8480bf93402">
+						<datasetParameter name="tableDataList">
+							<datasetParameterExpression><![CDATA[$F{payees}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{payees})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="178" uuid="e6349cfa-919a-42b6-8d02-b04541b0d32a">
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="178" height="30" uuid="41031497-2831-46d8-80b0-48b25deb384a"/>
+								<text><![CDATA[name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="178" height="20" uuid="77593b99-2322-4657-89ba-074488d13b3b"/>
+								<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="193" uuid="de586667-c560-4164-9905-c936bc0abc11">
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="193" height="30" uuid="7f3284ce-2449-4462-ba20-ae03176215b1"/>
+								<text><![CDATA[bankAccount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="193" height="20" uuid="6b6edf33-3e6a-4997-9fc8-975f52d64b5f"/>
+								<textFieldExpression><![CDATA[$F{bankAccount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="185" uuid="0c542726-c023-4f33-af6e-cb7c1afb10ad">
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="185" height="30" uuid="57df42d8-7c86-44ae-be83-ad92a895013f"/>
+								<text><![CDATA[bankName]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="185" height="20" uuid="7fe8bcda-96f2-4de1-8405-d6440a9ca3f2"/>
+								<textFieldExpression><![CDATA[$F{bankName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="50">
+			<staticText>
+				<reportElement x="39" y="16" width="100" height="20" uuid="51272b18-0464-4d4c-ad56-45702652e78c"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[下边是内容循环输出：]]></text>
+			</staticText>
+		</band>
+		<band height="190">
+			<componentElement>
+				<reportElement x="0" y="0" width="555" height="190" uuid="0c652184-64c1-4f2f-b257-f7be0663c1a7"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="eb8ae722-3c37-4f7f-9447-5907908ef1a7">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{payees})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="190" width="555">
+						<staticText>
+							<reportElement x="39" y="42" width="100" height="20" uuid="618b0e81-179c-43f0-92ef-7f4cfeb0b468"/>
+							<text><![CDATA[name]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="139" y="42" width="100" height="20" uuid="dbf1fee1-e915-49a5-9e39-df198f1da48e"/>
+							<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="39" y="67" width="100" height="20" uuid="4e3ea3fe-124c-4d9c-b983-7cababbbbd72"/>
+							<text><![CDATA[bankAccount]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="139" y="67" width="100" height="20" uuid="d4a6b91c-7cfc-47ac-8829-34fd49901405"/>
+							<textFieldExpression><![CDATA[$F{bankAccount}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="39" y="91" width="100" height="20" uuid="83dbe8b4-4351-49d1-8711-2e48514119cd"/>
+							<text><![CDATA[bankName]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="139" y="91" width="100" height="20" uuid="93e57265-a810-4127-bb92-c6b3758cb79d"/>
+							<textFieldExpression><![CDATA[$F{bankName}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="39" y="12" width="15" height="20" uuid="36d01d7c-e6ac-4114-9e49-7dc3e905b016"/>
+							<text><![CDATA[第]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="54" y="12" width="29" height="20" uuid="a264caa9-1563-4da4-83e0-ea65b32e6db2"/>
+							<textFieldExpression><![CDATA[$F{index}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="83" y="12" width="56" height="20" uuid="43fe7dde-78da-47cd-a1f1-2d09dde61074"/>
+							<text><![CDATA[位]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="198">
+			<pieChart>
+				<chart>
+					<reportElement x="157" y="70" width="200" height="100" uuid="e0afd421-7488-4b55-9ea5-487ac7ff0b29"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset>
+						<datasetRun subDataset="pie_chart_dataset" uuid="08451c03-1c99-4095-8cbc-d525b015dd81">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{chartValues})]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[$F{name}]]></keyExpression>
+					<valueExpression><![CDATA[$F{value}]]></valueExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</detail>
+</jasperReport>
