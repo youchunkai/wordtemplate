@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f613841e-657d-46b0-9c21-3e27818441d8">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="183"/>
+	<property name="ireport.y" value="134"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -79,6 +79,9 @@
 	<subDataset name="pie_chart_dataset" uuid="3a8a7324-1198-425e-ae2d-0802cfd1f904">
 		<field name="name" class="java.lang.String"/>
 		<field name="value" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="dataset2" uuid="fc1513f0-8dae-46ca-b331-4356de5a8edc">
+		<field name="paragraph" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["F:\\ireport-templates\\eventwarning\\reportdemo\\"]]></defaultValueExpression>
@@ -249,10 +252,10 @@
 				</jr:list>
 			</componentElement>
 		</band>
-		<band height="198">
+		<band height="127">
 			<pieChart>
 				<chart>
-					<reportElement x="157" y="70" width="200" height="100" uuid="e0afd421-7488-4b55-9ea5-487ac7ff0b29"/>
+					<reportElement x="139" y="12" width="200" height="100" uuid="e0afd421-7488-4b55-9ea5-487ac7ff0b29"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
@@ -271,6 +274,25 @@
 					<itemLabel/>
 				</piePlot>
 			</pieChart>
+		</band>
+		<band height="22">
+			<componentElement>
+				<reportElement x="0" y="0" width="555" height="22" uuid="bc2c436e-4c04-446b-9180-d87accc4aa9f"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dataset2" uuid="54e1f862-32b9-4b3d-91c9-5422e5d8016d">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{paragraphs})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="22" width="555">
+						<textField isStretchWithOverflow="true">
+							<reportElement x="0" y="0" width="555" height="22" uuid="2be007b9-73e4-40ab-a895-d065a4f13f4a"/>
+							<textElement>
+								<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{paragraph}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
 		</band>
 	</detail>
 </jasperReport>

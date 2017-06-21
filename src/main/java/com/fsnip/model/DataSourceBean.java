@@ -11,7 +11,7 @@ public class DataSourceBean {
 	
 	private List<PayeeEntity> payees;
 	
-	private List<String> paragraphs;
+	private List<Paragraph> paragraphs;
 	
 	private List<ChartValue> chartValues;
 
@@ -39,11 +39,11 @@ public class DataSourceBean {
 		this.payees = payees;
 	}
 
-	public List<String> getParagraphs() {
+	public List<Paragraph> getParagraphs() {
 		return paragraphs;
 	}
 
-	public void setParagraphs(List<String> paragraphs) {
+	public void setParagraphs(List<Paragraph> paragraphs) {
 		this.paragraphs = paragraphs;
 	}
 
