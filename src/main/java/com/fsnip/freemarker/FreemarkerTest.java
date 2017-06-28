@@ -97,5 +97,30 @@ public class FreemarkerTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void test3() throws IOException {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<PayeeEntity> payees = new ArrayList<PayeeEntity>();
+		for (int i = 0; i < 10; i++) {
+			payees.add(new PayeeEntity("name" + i, "bankAccount" + i, "bankName" + i));
+		}
+		map.put("payees", payees);
+		map.put("size", payees.size() + 2);
+		
+		try {
+			//通过Freemaker的Configuration读取相应的ftl
+	        Configuration cfg = new Configuration();
+	        //设定去哪里读取相应的ftl模板文件
+	        cfg.setClassForTemplateLoading(this.getClass(),"/ftl");
+	        //在模板文件目录中找到名称为name的文件
+	        Template temp = cfg.getTemplate("测试用freemarker生成word-easypoi4.xml");
+	        
+	        FileWriter out = new FileWriter(new File("d:\\easypoi\\easypoi4.xls"));
+		    temp.process(map, out);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

@@ -24,27 +24,43 @@ public class ChartFrame extends JFrame {
 		this.setVisible(true);// add by taodzh
 
 		JFreeChart Chart = null;
-
+		
+		//柱状图
 //		 Chart = ChartCreater.createCategoryChart();
+		 // 3D柱状图
 //		 Chart = ChartCreater.createCategoryChart3D();
+		 // 进度条柱状图
 //		 Chart = ChartCreater.createBarChart();
-		// Chart = ChartCreater.createBarChart3D();
+		// 3D进度条柱状图
+//		 Chart = ChartCreater.createBarChart3D();
+		// 面积图
 //		 Chart = ChartCreater.createAreaChart();
-		// Chart = ChartCreater.createHistogram();
+		// 柱状图
+//		 Chart = ChartCreater.createHistogram();
+		// 柱状图
 //		 Chart = ChartCreater.createLintChart3D();
-		 Chart = ChartCreater.createMultiplePieChart();
-		// Chart = ChartCreater.createMultiplePieChart3D();
-		// Chart = ChartCreater.createPieChart();
-		// Chart = ChartCreater.createPieChart3D();
-		// Chart = ChartCreater.createRingChart();
-		// Chart = ChartCreater.createScatterPlot();
+		// 多重饼图
+//		 Chart = ChartCreater.createMultiplePieChart();
+		// 3D多重饼图
+//		 Chart = ChartCreater.createMultiplePieChart3D();
+		// 饼图
+//		 Chart = ChartCreater.createPieChart();
+		// 3D饼图
+//		 Chart = ChartCreater.createPieChart3D();
+		// 环形饼图
+//		 Chart = ChartCreater.createRingChart();
+		// 散点图
+//		 Chart = ChartCreater.createScatterPlot();
 		// Chart = ChartCreater.createBubbleChart(); //youcuo
 		// Chart = ChartCreater.createCandlestickChart(); //youcuo
-		// Chart = ChartCreater.createCombinedChart();
-		// Chart = ChartCreater.createGanttChart();
+		// 结合图（柱状图和折线图）
+//		 Chart = ChartCreater.createCombinedChart();
+		// 甘特图
+//		 Chart = ChartCreater.createGanttChart();
 		// Chart = ChartCreater.createHighLowChart(); //youcuo
-		// Chart = ChartCreater.createStackedAreaChart();
-		// Chart = ChartCreater.createStackedBarChart();
+		// 堆叠面积图
+//		 Chart = ChartCreater.createStackedAreaChart();
+		 Chart = ChartCreater.createStackedBarChart();
 		// Chart = ChartCreater.createStackedBarChart3D();
 		// Chart = ChartCreater.createStackedCategoryChart();
 		// Chart = ChartCreater.createStackedCategoryChart3D();

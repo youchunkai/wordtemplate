@@ -2,7 +2,6 @@ package com.fsnip.easypoi;
 
 import java.awt.RenderingHints;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.jeecgframework.poi.excel.ExcelExportUtil;
+import org.jeecgframework.poi.excel.entity.TemplateExportParams;
 import org.jeecgframework.poi.word.WordExportUtil;
 import org.jeecgframework.poi.word.entity.WordImageEntity;
 import org.jfree.chart.ChartUtilities;
@@ -70,6 +72,59 @@ public class EasyPoiTest {
 					"D:/easypoi/easypoiReport.docx");
 			doc.write(fos);
 			fos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void test3() throws IOException {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<PayeeEntity> payees = new ArrayList<PayeeEntity>();
+		for (int i = 0; i < 10; i++) {
+			payees.add(new PayeeEntity("name" + i, "bankAccount" + i, "bankName" + i));
+		}
+		map.put("payees", payees);
+		
+		String path = System.getProperty("user.dir") + "/template/easypoi2.xlsx";
+		System.out.println("---------------path:" + path);
+		try {
+			TemplateExportParams params = new TemplateExportParams(path, "11111", 0);
+			Workbook exportExcel = ExcelExportUtil.exportExcel(params, map);
+			FileOutputStream fos = new FileOutputStream(
+					"D:/easypoi/easypoiReport.xlsx");
+			exportExcel.write(fos);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void test4() throws IOException {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<PayeeEntity> payees = new ArrayList<PayeeEntity>();
+		for (int i = 0; i < 10; i++) {
+			payees.add(new PayeeEntity("name" + i, "bankAccount" + i, "bankName" + i));
+		}
+		map.put("payees", payees);
+		
+		Map<String, Object> map1 = new HashMap<String, Object>();
+		List<PayeeEntity> payees1 = new ArrayList<PayeeEntity>();
+		for (int i = 0; i < 10; i++) {
+			payees1.add(new PayeeEntity("name" + i, "bankAccount" + i, "bankName" + i));
+		}
+		map1.put("payees1", payees1);
+		
+		String path = System.getProperty("user.dir") + "/template/easypoi2.xlsx";
+		try {
+			Map<Integer, Map<String, Object>> m = new HashMap<Integer, Map<String,Object>>();
+			m.put(0, map);
+//			m.put(1, map1);
+			TemplateExportParams params = new TemplateExportParams(path, 0);
+			Workbook exportExcel = ExcelExportUtil.exportExcel(m, params);
+			FileOutputStream fos = new FileOutputStream(
+					"D:/easypoi/easypoiReport.xlsx");
+			exportExcel.write(fos);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
