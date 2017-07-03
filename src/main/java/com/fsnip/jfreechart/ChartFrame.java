@@ -60,17 +60,27 @@ public class ChartFrame extends JFrame {
 		// Chart = ChartCreater.createHighLowChart(); //youcuo
 		// 堆叠面积图
 //		 Chart = ChartCreater.createStackedAreaChart();
-		 Chart = ChartCreater.createStackedBarChart();
-		// Chart = ChartCreater.createStackedBarChart3D();
-		// Chart = ChartCreater.createStackedCategoryChart();
-		// Chart = ChartCreater.createStackedCategoryChart3D();
+		// 横向堆叠柱状图
+//		 Chart = ChartCreater.createStackedBarChart();
+		// 3D横向堆叠柱状图
+//		 Chart = ChartCreater.createStackedBarChart3D();
+		// 堆叠柱状图
+//		 Chart = ChartCreater.createStackedCategoryChart();
+		// 3D堆叠柱状图
+//		 Chart = ChartCreater.createStackedCategoryChart3D();
 		// Chart = ChartCreater.createStackedXYAreaChart(); //youcuo
-		// Chart = ChartCreater.createWaterfallChart();
-		// Chart = ChartCreater.createXYAreaChart();
-		// Chart = ChartCreater.createXYBarChart();
-		// Chart = ChartCreater.createXYLineChart();
-		// Chart = ChartCreater.createXYStepAreaChart();
-		// Chart = ChartCreater.createXYStepChart();
+		// 流水图
+//		 Chart = ChartCreater.createWaterfallChart();
+		// 折线面积图
+//		 Chart = ChartCreater.createXYAreaChart();
+		// 柱状图
+//		 Chart = ChartCreater.createXYBarChart();
+		// 折线图
+//		 Chart = ChartCreater.createXYLineChart();
+		// 面积折线图
+//		 Chart = ChartCreater.createXYStepAreaChart();
+		// 折线图
+//		 Chart = ChartCreater.createXYStepChart();
 
 		Chart.getPlot().setBackgroundAlpha(1.0f);
 		Chart.getPlot().setNoDataMessage("当前没有有效的数据");
