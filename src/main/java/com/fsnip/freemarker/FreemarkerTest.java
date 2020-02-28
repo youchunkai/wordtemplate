@@ -1,16 +1,14 @@
 package com.fsnip.freemarker;
 
 import java.awt.RenderingHints;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import freemarker.template.TemplateExceptionHandler;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.junit.Test;
@@ -24,6 +22,8 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 
 public class FreemarkerTest {
+
+	static String templatePath = "d:/test";
 	
 	@Test
 	public void test1() throws IOException {
@@ -85,11 +85,10 @@ public class FreemarkerTest {
 		
 		try {
 			//通过Freemaker的Configuration读取相应的ftl
-	        Configuration cfg = new Configuration();
-	        //设定去哪里读取相应的ftl模板文件
-	        cfg.setClassForTemplateLoading(this.getClass(),"/ftl");
+	        Configuration cfg = getConfiguration();
+
 	        //在模板文件目录中找到名称为name的文件
-	        Template temp = cfg.getTemplate("测试用freemarker生成word.xml");
+	        Template temp = cfg.getTemplate("123.xml");
 	        
 	        FileWriter out = new FileWriter(new File("d:\\easypoi\\freemarker.doc"));
 		    temp.process(map, out);
@@ -121,6 +120,55 @@ public class FreemarkerTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	/**初始化FreeMarker环境变量*/
+	public static Configuration getConfiguration() {
+
+		Configuration cfg = new Configuration(Configuration.VERSION_2_3_27);
+		try {
+			cfg.setDirectoryForTemplateLoading(new File(templatePath));
+			cfg.setDefaultEncoding("UTF-8");
+			cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
+			cfg.setLogTemplateExceptions(false);
+			cfg.setWrapUncheckedExceptions(true);
+		} catch (IOException e) {
+			System.out.println("模板文件夹 未找到");
+			e.printStackTrace();
+		}
+		return cfg;
+	}
+
+
+	@Test
+	public void test4 () throws IOException {
+		JFreeChart Chart = ChartCreater.createCategoryChart();
+
+		Chart.getRenderingHints().put (RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
+
+		Chart.getPlot().setBackgroundAlpha(1.0f);
+		Chart.getPlot().setNoDataMessage("当前没有有效的数据");
+
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ChartUtilities.writeChartAsJPEG(baos, Chart, 700, 500);
+
+		FileOutputStream fos = null;
+        try {
+			fos = new FileOutputStream("d:/test/1.jpeg");
+			fos.write(baos.toByteArray());
+        } catch (FileNotFoundException e) {
+        	e.printStackTrace();
+        } catch (IOException e) {
+        	e.printStackTrace();
+        }finally {
+        	fos.close();
+        	baos.close();
+		}
+
+
+
+
 	}
 
 }

@@ -29,6 +29,13 @@
 		</repository>
 	</repositories>
 	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+
 		<dependency>
             <groupId>org.jeecg</groupId>
             <artifactId>easypoi-base</artifactId>
@@ -53,7 +60,7 @@
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
-			<version>2.3.23</version>
+			<version>2.3.28</version>
 		</dependency>
 		
 		<!-- iReport JasperReports -->
@@ -85,7 +92,7 @@
 		<dependency>
 		  <groupId>com.lowagie</groupId>
 		  <artifactId>itext</artifactId>
-		  <version>2.1.7.js2</version>
+		  <version>4.2.2</version>
 		</dependency>
 		
 		<!-- <dependency>

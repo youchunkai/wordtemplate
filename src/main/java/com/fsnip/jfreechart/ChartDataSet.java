@@ -20,21 +20,11 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class ChartDataSet {
 	
-	/*private static final String series1 = "series1";  
-    private static final String series2 = "series2";  
-    private static final String series3 = "series3"; */ 
-    
-    private static final String series1 = "系列1";  
+    private static final String series1 = "系列1";
     private static final String series2 = "系列2";  
     private static final String series3 = "系列3";  
   
-   /* private static final String category1 = "category1";  
-    private static final String category2 = "category2";  
-    private static final String category3 = "category3";  
-    private static final String category4 = "category4";  
-    private static final String category5 = "category5"; */ 
-    
-    private static final String category1 = "种类1";  
+    private static final String category1 = "种类1";
     private static final String category2 = "种类2";  
     private static final String category3 = "种类3";  
     private static final String category4 = "种类4";  
@@ -49,34 +39,16 @@ public class ChartDataSet {
      * @return CategoryDataset 
      */  
     public static CategoryDataset createCategoryDataset() {  
-        DefaultCategoryDataset categoryDataset = new DefaultCategoryDataset();  
-        Object[] objects1={20,29,22,30,20,31,20,20,31,20,20,30,22,22,30,20,30,22,30,21,31,20,31,20};  
-        Object[] objects2={40,59,42,50,40,51,40,40,51,40,40,50,42,42,50,40,50,42,50,41,51,40,51,40};  
-        for(int i=0;i<24;i++){  
-            categoryDataset.addValue((Number) objects1[i], "偏差电量", i+1);  
-        }  
-        for(int i=0;i<24;i++){  
-            categoryDataset.addValue((Number) objects2[i], "考核电量", i+1);  
-        }  
-  
-        /*categoryDataset.addValue(2.0, series1, category1); 
-        categoryDataset.addValue(4.0, series1, category2); 
-        categoryDataset.addValue(3.0, series1, category3); 
-        categoryDataset.addValue(7.0, series1, category4); 
-        categoryDataset.addValue(5.0, series1, category5); 
- 
-        categoryDataset.addValue(5.0, series2, category1); 
-        categoryDataset.addValue(9.0, series2, category2); 
-        categoryDataset.addValue(6.0, series2, category3); 
-        categoryDataset.addValue(5.0, series2, category4); 
-        categoryDataset.addValue(2.0, series2, category5); 
- 
-        categoryDataset.addValue(6.5, series3, category1); 
-        categoryDataset.addValue(7.5, series3, category2); 
-        categoryDataset.addValue(4.0, series3, category3); 
-        categoryDataset.addValue(8.0, series3, category4); 
-        categoryDataset.addValue(9.0, series3, category5);*/  
-  
+        DefaultCategoryDataset categoryDataset = new DefaultCategoryDataset();
+
+        categoryDataset.addValue(36,"1","1月1日");
+        categoryDataset.addValue(136,"2","1月2日");
+        categoryDataset.addValue(66,"3","1月3日");
+        categoryDataset.addValue(187,"4","1月4日");
+        categoryDataset.addValue(336,"5","1月5日");
+        categoryDataset.addValue(275,"6","1月6日");
+        categoryDataset.addValue(256,"5","1月7日");
+
         return categoryDataset;  
     }  
   

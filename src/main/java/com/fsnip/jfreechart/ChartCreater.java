@@ -2,12 +2,16 @@ package com.fsnip.jfreechart;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.axis.AxisLocation;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.Plot;
@@ -16,11 +20,16 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.XYZDataset;
 import org.jfree.util.TableOrder;
 
 public class ChartCreater {
-	
+
+    private static String[] Corlors = {"#00E400","#FFFF00","#FF7E00","#FF0000","#99004C","#7E0023"};
+
+
 	private static void init() {
 		//创建主题样式  
         StandardChartTheme standardChartTheme=new StandardChartTheme("CN");  
@@ -46,20 +55,108 @@ public class ChartCreater {
   
         JFreeChart chart = ChartFactory.createBarChart("Bar2D", // 图表名称  
                 "Category", // X轴名称  
-                "Value", // Y轴名称  
-                ChartDataSet.createCategoryDataset(),  
+                "Value", // Y轴名称
+                null,
                 PlotOrientation.VERTICAL, // 图表方向  
-                true, // 图例  
+                false, // 图例
                 true, // Tooltips  
                 false); // URL  
-  
-        CategoryPlot plot = (CategoryPlot) chart.getPlot();  
-  
-        setCategoryPlot(plot);  
+        DefaultCategoryDataset categoryDataset = new DefaultCategoryDataset();
+        CategoryPlot plot = (CategoryPlot) chart.getPlot();
+
+
+        List<HashMap<String, Object>> datas = createData();
+        CustomRenderer renderer = new CustomRenderer(datas);
+
+        plot.setRenderer(renderer);
+
+
+        for(HashMap<String, Object> data : datas){
+            int value = Integer.valueOf(data.get("value").toString());
+            categoryDataset.addValue(value,"1",data.get("datetime").toString());
+        }
+        plot.setDataset(0,categoryDataset);
+        //图片背景色
+        plot.setBackgroundPaint(Color.white);
+        plot.setOutlineVisible(true);
+
+        //设置网格横线颜色
+        plot.setRangeGridlinePaint(Color.blue);
+        plot.setRangeGridlinesVisible(true);
+
+        //柱子上显示对应数值
+        renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());
+        renderer.setBaseItemLabelsVisible(true);
+        renderer.setBaseItemLabelPaint(Color.BLUE);//设置数值颜色，默认黑色
+
+
+
+//        setCategoryPlot(plot);
   
         return chart;  
-    }  
-  
+    }
+
+//    private static int getSeries(int value) {
+//        int i = 1;
+//        if(value <= 50){
+//           i = 1;
+//        }else if(value <= 100){
+//            i = 2;
+//        }else if(value <= 150){
+//            i = 3;
+//        }else if(value <= 200){
+//            i = 4;
+//        }else if(value <= 300){
+//            i = 5;
+//        }else if(value > 300){
+//            i = 6;
+//        }
+//
+//        return i;
+//    }
+
+
+
+    private static List<HashMap<String,Object>> createData() {
+        ArrayList<HashMap<String, Object>> datas = new ArrayList<HashMap<String, Object>>();
+        HashMap<String,Object> data1 = new HashMap<String, Object>();
+        data1.put("value",35);
+        data1.put("datetime","1月1日");
+        datas.add(data1);
+
+        HashMap<String,Object> data2 = new HashMap<String, Object>();
+        data2.put("value",75);
+        data2.put("datetime","1月2日");
+        datas.add(data2);
+
+        HashMap<String,Object> data3 = new HashMap<String, Object>();
+        data3.put("value",135);
+        data3.put("datetime","1月3日");
+        datas.add(data3);
+
+        HashMap<String,Object> data4 = new HashMap<String, Object>();
+        data4.put("value",185);
+        data4.put("datetime","1月4日");
+        datas.add(data4);
+
+        HashMap<String,Object> data5 = new HashMap<String, Object>();
+        data5.put("value",235);
+        data5.put("datetime","1月5日");
+        datas.add(data5);
+
+        HashMap<String,Object> data6 = new HashMap<String, Object>();
+        data6.put("value",35);
+        data6.put("datetime","1月6日");
+        datas.add(data6);
+
+        HashMap<String,Object> data7 = new HashMap<String, Object>();
+        data7.put("value",335);
+        data7.put("datetime","1月7日");
+        datas.add(data7);
+
+        return datas;
+    }
+
     /** */  
     /** 
      * 3D柱图 
