@@ -143,32 +143,29 @@ public class FreemarkerTest {
 
 	@Test
 	public void test4 () throws IOException {
-		JFreeChart Chart = ChartCreater.createCategoryChart();
+        JFreeChart Chart = ChartCreater.createCategoryChart();
 
-		Chart.getRenderingHints().put (RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
+        Chart.getRenderingHints().put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
 
-		Chart.getPlot().setBackgroundAlpha(1.0f);
-		Chart.getPlot().setNoDataMessage("当前没有有效的数据");
+        Chart.getPlot().setBackgroundAlpha(1.0f);
+        Chart.getPlot().setNoDataMessage("当前没有有效的数据");
 
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ChartUtilities.writeChartAsJPEG(baos, Chart, 700, 500);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ChartUtilities.writeChartAsJPEG(baos, Chart, 700, 500);
 
-		FileOutputStream fos = null;
+        FileOutputStream fos = null;
         try {
-			fos = new FileOutputStream("d:/test/1.jpeg");
-			fos.write(baos.toByteArray());
+            fos = new FileOutputStream("d:/test/1.jpeg");
+            fos.write(baos.toByteArray());
         } catch (FileNotFoundException e) {
-        	e.printStackTrace();
+            e.printStackTrace();
         } catch (IOException e) {
-        	e.printStackTrace();
-        }finally {
-        	fos.close();
-        	baos.close();
-		}
+            e.printStackTrace();
+        } finally {
+            fos.close();
+            baos.close();
+        }
 
-
-
-
-	}
+    }
 
 }
